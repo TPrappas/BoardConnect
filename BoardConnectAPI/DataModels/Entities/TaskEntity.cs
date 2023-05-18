@@ -4,17 +4,41 @@ namespace BoardConnectAPI
 {
     public class TaskEntity : BaseEntity
     {
+        #region Private Members
+
+        /// <summary>
+        /// The member of the <see cref="Title"/> property
+        /// </summary>
+        private string? mTitle;
+
+        /// <summary>
+        /// The member of the <see cref="Description"/> property
+        /// </summary>
+        private string? mDescription;
+
+        #endregion
+
         #region Public Properties
 
         /// <summary>
         /// The title
         /// </summary>
-        public string Title { get; set; }
+        public string Title
+        {
+            get => mTitle ?? string.Empty;
+
+            set => mTitle = value;
+        }
 
         /// <summary>
-        /// The description
+        /// The discription
         /// </summary>
-        public string Description { get; set; }
+        public string Description
+        {
+            get => mDescription ?? string.Empty;
+
+            set => mDescription = value;
+        }
 
         /// <summary>
         /// The progress
@@ -49,7 +73,7 @@ namespace BoardConnectAPI
         /// </summary>
         /// The related company
         /// Navigation Property
-        public ProjectEntity Project { get; set; }
+        public ProjectEntity? Project { get; set; }
 
         #endregion
 
