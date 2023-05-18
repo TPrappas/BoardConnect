@@ -13,6 +13,12 @@
 
         public const string ProjectRoute = ProjectsRoute + "/{projectId}";
 
+        #region Project Tasks Route
+
+        public const string ProjectTasksRoute = ProjectRoute + "/tasks";
+
+        #endregion
+
         #endregion
 
         #region Task Routes

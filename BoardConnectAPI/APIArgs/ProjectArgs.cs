@@ -2,27 +2,51 @@
 {
     public class ProjectArgs : BaseArgs
     {
+        #region Private Members
+
+        /// <summary>
+        /// The member of the <see cref="Search"/> property
+        /// </summary>
+        private string? mSearch;
+
+        /// <summary>
+        /// The member of the <see cref="Name"/> property
+        /// </summary>
+        private string? mName;
+
+        #endregion
+
         #region Public Properties
 
         /// <summary>
         /// By Title
         /// </summary>
-        public string Search { get; set; }
+        public string Search
+        {
+            get => mSearch ?? string.Empty;
+
+            set => mSearch = value;
+        }
 
         /// <summary>
         /// By name
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get => mName ?? string.Empty;
+
+            set => mName = value;
+        }
 
         /// <summary>
         /// By min progress
         /// </summary>
-        public decimal MinProgress { get; set; }
+        public decimal? MinProgress { get; set; }
 
         /// <summary>
         /// By max progress
         /// </summary>
-        public decimal MaxProgress { get; set; }
+        public decimal? MaxProgress { get; set; }
 
         /// <summary>
         /// By after start date 

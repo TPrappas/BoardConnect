@@ -1,6 +1,7 @@
 ﻿using BoardConnectAPI.APIArgs;
 using BoardConnectAPI.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace BoardConnectAPI.Controllers
@@ -21,7 +22,7 @@ namespace BoardConnectAPI.Controllers
         /// <summary>
         /// The query used for retrieving the Tasks
         /// </summary>
-        protected IQueryable<TaskEntity> TasksQuery => mContext.Tasks;
+        protected IQueryable<TaskEntity> TasksQuery => mContext.Tasks.Include(x => x.Project);
 
         #endregion
 
@@ -103,6 +104,16 @@ namespace BoardConnectAPI.Controllers
             if (args.BeforeFinishDate is not null)
                 // Add to filters
                 filters.Add(x => x.FinishDate <= args.BeforeFinishDate);
+
+            // If the included Projects is not null...
+            if (args.IncludedProjects is not null)
+                // Add to filters
+                filters.Add(x => args.IncludedProjects.Contains(x.ProjectId));
+
+            // If the excluded Projects is not null...
+            if (args.ExcludedProjects is not null)
+                // Add to filters
+                filters.Add(x => !args.ExcludedProjects.Contains(x.ProjectId));
 
             // If the After Date Created is not null...
             if (args.AfterDateCreated is not null)
