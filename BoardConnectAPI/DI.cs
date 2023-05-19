@@ -9,7 +9,7 @@ namespace BoardConnectAPI
         /// <summary>
         /// The member of the <see cref="GetMapper"/> property
         /// </summary>
-        private static IMapper mMapper;
+        private static IMapper? mMapper;
 
         #endregion
 
@@ -18,7 +18,7 @@ namespace BoardConnectAPI
         /// <summary>
         /// The host
         /// </summary>
-        public static IHost Host { get; set; }
+        public static IHost? Host { get; set; }
 
         /// <summary>
         /// The mapper
@@ -28,7 +28,7 @@ namespace BoardConnectAPI
             get
             {
                 if (mMapper == null)
-                    mMapper = Host.Services.GetRequiredService<Mapper>();
+                    mMapper = Host?.Services.GetRequiredService<Mapper>();
 
                 return mMapper;
             }

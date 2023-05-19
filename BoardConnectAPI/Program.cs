@@ -5,7 +5,7 @@ public class Program
     /// <summary>
     /// The service provider
     /// </summary>
-    public static IServiceProvider Provider { get; private set; }
+    public static IServiceProvider? Provider { get; private set; }
 
     /// <summary>
     /// The main method

@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  boardconnectdb:
+        container_name: boardconnect-db
+        image: mysql:8.0.33-oracle
+        environment: 
+            - MYSQL_ROOT_PASSWORD=12345678
+        ports:
+            - 8003:3306
+  boardconnectapi:
+        container_name: boardconnect-api
+        image: ${DOCKER_REGISTRY-}boardconnectapi
+        build:
+          context: .
+          dockerfile: BoardConnectAPI/Dockerfile
+        ports:
+            - 8080:80
+        environment:
+            - DB_HOST=boardconnectdb
+            - DB_NAME=boardconnect
+            - DB_ROOT_PASSWORD=12345678            
