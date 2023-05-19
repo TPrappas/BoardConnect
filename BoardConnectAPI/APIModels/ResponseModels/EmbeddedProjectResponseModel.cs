@@ -2,22 +2,56 @@
 {
     public class EmbeddedProjectResponseModel : BaseResponseModel
     {
+        #region Private Members
+
+        /// <summary>
+        /// The member of the <see cref="Title"/> property
+        /// </summary>
+        private string? mTitle;
+
+        /// <summary>
+        /// The member of the <see cref="Description"/> property
+        /// </summary>
+        private string? mDescription;
+
+        /// <summary>
+        /// The member of the <see cref="Name"/> property
+        /// </summary>
+        private string? mName;
+
+        #endregion
+
         #region Public Properties
 
         /// <summary>
         /// The title
         /// </summary>
-        public string Title { get; set; }
+        public string Title
+        {
+            get => mTitle ?? string.Empty;
+
+            set => mTitle = value;
+        }
 
         /// <summary>
-        /// The discription
+        /// The description
         /// </summary>
-        public string Description { get; set; }
+        public string Description
+        {
+            get => mDescription ?? string.Empty;
+
+            set => mDescription = value;
+        }
 
         /// <summary>
         /// The name
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get => mName ?? string.Empty;
+
+            set => mName = value;
+        }
 
         /// <summary>
         /// The progress
@@ -37,7 +71,7 @@
         /// <summary>
         /// The Tasks related to the project
         /// </summary>
-        public IEnumerable<EmbeddedTaskResponseModel> Tasks { get; set; }
+        public IEnumerable<EmbeddedTaskResponseModel>? Tasks { get; set; }
 
         #endregion
 

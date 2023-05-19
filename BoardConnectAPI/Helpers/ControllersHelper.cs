@@ -173,7 +173,7 @@ namespace BoardConnectAPI.Helpers
         /// <param name="model"></param>
         /// <param name="action"></param>
         /// <returns></returns>
-        public static TEntity FromRequestModel<TEntity, TRequestModel>(TRequestModel model, Action<TEntity> action = null)
+        public static TEntity FromRequestModel<TEntity, TRequestModel>(TRequestModel model, Action<TEntity>? action = null)
             where TEntity : BaseEntity
         {
             // Maps the request model to the entity
