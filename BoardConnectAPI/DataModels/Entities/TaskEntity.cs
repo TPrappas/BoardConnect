@@ -16,6 +16,11 @@ namespace BoardConnectAPI
         /// </summary>
         private string? mDescription;
 
+        /// <summary>
+        /// The member of the <see cref="Progress"/> property
+        /// </summary>
+        private uint mProgress = 0;
+
         #endregion
 
         #region Public Properties
@@ -43,7 +48,17 @@ namespace BoardConnectAPI
         /// <summary>
         /// The progress
         /// </summary>
-        public decimal Progress { get; set; }
+        public uint Progress 
+        { 
+            get => mProgress; 
+            
+            set
+            {
+                mProgress = value;
+                if(mProgress > 100) 
+                    mProgress = 100;
+            }
+        }
 
         /// <summary>
         /// The status

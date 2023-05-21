@@ -25,7 +25,12 @@ namespace BoardConnectAPI
         /// <summary>
         /// The member of the <see cref="Tasks"/> property
         /// </summary>
-        private ICollection<TaskEntity>? mTasks; 
+        private ICollection<TaskEntity>? mTasks;
+
+        /// <summary>
+        /// The member of the <see cref="Progress"/> property
+        /// </summary>
+        private uint mProgress = 0;
 
         #endregion
 
@@ -64,7 +69,17 @@ namespace BoardConnectAPI
         /// <summary>
         /// The progress
         /// </summary>
-        public decimal Progress { get; set; }
+        public uint Progress
+        {
+            get => mProgress;
+
+            set
+            {
+                mProgress = value;
+                if (mProgress > 100)
+                    mProgress = 100;
+            }
+        }
 
         /// <summary>
         /// The start date

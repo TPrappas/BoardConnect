@@ -56,7 +56,7 @@
         /// <summary>
         /// The progress
         /// </summary>
-        public decimal Progress { get; set; }
+        public uint Progress { get; set; }
 
         /// <summary>
         /// The start date
@@ -67,11 +67,6 @@
         /// The finish date
         /// </summary>
         public DateTimeOffset FinishDate { get; set; }
-
-        /// <summary>
-        /// The Tasks related to the project
-        /// </summary>
-        public IEnumerable<EmbeddedTaskResponseModel>? Tasks { get; set; }
 
         #endregion
 

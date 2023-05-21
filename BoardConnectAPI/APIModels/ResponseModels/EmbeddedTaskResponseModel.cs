@@ -41,7 +41,7 @@
         /// <summary>
         /// The progress
         /// </summary>
-        public decimal Progress { get; set; }
+        public uint Progress { get; set; }
 
         /// <summary>
         /// The status

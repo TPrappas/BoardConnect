@@ -143,26 +143,6 @@ namespace BoardConnectAPI
         }
 
         /// <summary>
-        /// Gets the project with the specified id and the tasks from the database if exists...
-        /// Else returns not found
-        /// </summary>
-        /// <param name="projectId">The project's id</param>
-        /// Get api/projects/{projectId}/tasks == api/projects/1/tasks
-        [HttpGet]
-        [Route(Routes.ProjectTasksRoute)]
-        public Task<ActionResult<EmbeddedProjectResponseModel>> GetProjectTasksAsync([FromRoute] int projectId)
-        {
-            // The needed expression for the filter
-            Expression<Func<ProjectEntity, bool>> filter = x => x.Id == projectId;
-
-            // Gets the response model 
-            return ControllersHelper.GetAsync<ProjectEntity, EmbeddedProjectResponseModel>(
-                ProjectsQuery,
-                DI.GetMapper,
-                filter);
-        }
-
-        /// <summary>
         /// Updates the project with the specified id
         /// </summary>
         /// <param name="projectId">The project's id</param>
